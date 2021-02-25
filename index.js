@@ -105,6 +105,7 @@ function listLabels(auth) {
             id: idData
         }, (err, res) => {
             if (err) return console.log('The API returned an error: ' + err);
+            console.log(res.data.snippet)
             const payload = res.data.payload
             for (let i = 0; i < payload.parts.length; i++) {
                 part = payload.parts[i]
@@ -130,7 +131,7 @@ function listLabels(auth) {
             var blob = new Blob([base64Fixed], {
                 type: mimeType
             })
-            save(blob, 'images/' + filename)
+                save(blob, 'attachments/' + filename)
         })
 
         function fixBase64(binaryData) {
